@@ -1,5 +1,5 @@
 # Quickest path in London
-   - A student project in FPT University
+A student project in FPT University
 
 ## Demo
 
