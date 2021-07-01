@@ -22,8 +22,6 @@
 
 ## Contributors
 Team members: 
-   - [Cao Ngoc Hieu]
-   - [Nguyen Gia Huy]
-   - [Nguyen Tai Loc]
-1. Restart Zsh.
-1. Type `p10k configure` if the configuration wizard doesn't start automatically.
+   - Cao Ngoc Hieu
+   - Nguyen Gia Huy
+   - Nguyen Tai Loc
