@@ -14,11 +14,12 @@ from math import cos, asin, sqrt, pi
 import matplotlib.pyplot as plt
 from matplotlib import patches
 import random
+start_up_t1 = time.time()
 with open('../../Data/connection.json', encoding='utf-8') as f:
 	data = json.load(f)
 data_list = list(data.items())
+print(f'Read time: {time.time() - start_up_t1}')
 app = FastAPI()
-start_up_t1 = time.time()
 def groad_get():
 	dir_path = os.path.dirname(os.path.realpath(__file__))
 	os.chdir(dir_path)
@@ -35,12 +36,12 @@ def groad_get():
 					 'elevator', 'residential', 'tertiary', 'primary', 'proposed', 'footway']
 	lgroad = ['primary_link', 'trunk_link', 'primary', 'motorway', 'motorway_link', 'secondary_link', 'trunk', 'secondary', 'tertiary', 'tertiary_link']
 	meroad = ['corridor', 'raceway', 'elevator', 'unclassified', 'service', 'bridleway', 'footway']
-	groad = ['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'living_street', 'pedestrian']
+	groad = ['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'living_street', 'pedestrian', 'unclassified']
 	return groad
 groad = groad_get()
-
+print(f'Number of node: {len(data_list)}')
 def color_map_get():
-	color = ['crimson', 'crimson', 'coral', 'coral', 'gold', 'gold', 'limegreen', 'limegreen', 'cyan', 'cyan', 'deepskyblue', 'mediumblue', 'blueviolet']
+	color = ['crimson', 'crimson', 'coral', 'coral', 'gold', 'gold', 'limegreen', 'limegreen', 'cyan', 'cyan', 'deepskyblue', 'mediumblue', 'blueviolet', 'fuchsia']
 	road_color = dict(zip(groad, color))
 	# print(road_color)
 	color_map = {}
@@ -181,7 +182,7 @@ def build_edit_distance():
 			print(f"Number of named node: {len(re)}")
 			self.stringData = re
 			
-		def _computeDist(self, string1, string2):
+		def compute_edit_dist(self, string1, string2):
 			# + 1 for 1 more row to contain order of character in string
 			m = len(string1) + 1
 			n = len(string2) + 1
@@ -204,11 +205,11 @@ def build_edit_distance():
 			dist = matrix[m-1][n-1]
 			return dist
 		
-		def nearestName(self, search, top_n=1):
+		def nearest_name_get(self, search, top_n=1):
 			dist_scores = []
 			mi = 1e15
 			for v in self.stringData:
-				dist = self._computeDist(search, v)
+				dist = self.compute_edit_dist(search, v)
 				if int(dist) < mi:
 					mi = dist
 					re = (name2id[v], v)
@@ -227,13 +228,13 @@ ED = build_edit_distance()
 @app.get("/byName/")
 def findByName(name1, name2):
 	t1 = time.time()
-	a = ED.nearestName(name1)
-	b = ED.nearestName(name2)
+	a = ED.nearest_name_get(name1)
+	b = ED.nearest_name_get(name2)
 	re = sh(str(a[0]), str(b[0]))
 	t2 = time.time() - t1
 	return re, t2
 # findByName(name1, name2)
-# print(ED.nearestName("summy side"))
+# print(ED.nearest_name_get("summy side"))
 # print(time.time() - t)
 # print(data_list[1])
 # %%
@@ -283,7 +284,7 @@ def build_quadtree():
 			recursive_subdivide(self.root, self.threshold)
 		
 		def graph(self):
-			fig = plt.figure(figsize=(20, 20))
+			fig = plt.figure(figsize=(60, 60))
 			plt.title("Quadtree")
 			ax = fig.add_subplot(111)
 			c = find_children(self.root)
@@ -296,10 +297,10 @@ def build_quadtree():
 				ax.add_patch(patches.Rectangle((n.x0, n.y0), n.width, n.height, fill=False))
 			x = [point.x for point in self.points]
 			y = [point.y for point in self.points]
-			plt.plot(x, y, 'ro', markersize=1)
+			plt.plot(x, y, 'ro', markersize=0.1)
 			print("Quadtree showed")
-			plt.show()
 			plt.savefig('quadtree.png')
+			plt.show()
 			return
 
 	def recursive_subdivide(node, k):
@@ -353,7 +354,7 @@ def build_quadtree():
 	# print(min(lats), max(lats))
 	# print(min(lons), max(lons))
 	# print(len(Q.points))
-	Q = QTree(10, 3, data_list=data_list[:3000])
+	Q = QTree(10, 3, data_list=data_list[:100000])
 	t = time.time()
 	Q.subdivide()
 	Q.graph()
