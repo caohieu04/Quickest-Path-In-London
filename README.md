@@ -31,7 +31,7 @@
     * Cao Ngoc Hieu
     * Nguyen Gia Huy
     * Nguyen Tai Loc
-    * 
+    
 ## Road color
 
 | Road                       | Color | |
