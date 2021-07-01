@@ -1,10 +1,13 @@
 # Quickest path in London
 * A student project in FPT University
-   * About:
+   * About
       * By extracting infomations of road networking in London from OSM, this can then run Dijsktra Algorithm to find shortest path.
+* Technical
    * Shortest Path:
       * Function sh(src, des, by):
-          * wtf
+          * src: source (node_id)(str)
+          * des: destination (node_id)(str)
+          * by: `time` or `distance` (str)
 * Team members: 
     * Cao Ngoc Hieu
     * Nguyen Gia Huy
