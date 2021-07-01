@@ -1,5 +1,5 @@
 # Quickest path in London
-  -A student project in FPT University
+  1. A student project in FPT University
 
 ## Demo
 
@@ -21,6 +21,6 @@
 ![](demo.gif)
 
 ## Members
-  -Cao Ngoc Hieu
-  -Nguyen Gia Huy
-  -Nguyen Tai Loc
+  1. Cao Ngoc Hieu
+  1. Nguyen Gia Huy
+  1. Nguyen Tai Loc
