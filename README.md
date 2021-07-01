@@ -21,7 +21,7 @@ A student project in FPT University
 ![](demo.gif)
 
 ## Contributors
-*Team members: 
-   *Cao Ngoc Hieu
-   *Nguyen Gia Huy
-   *Nguyen Tai Loc
+* Team members: 
+    * Cao Ngoc Hieu
+    * Nguyen Gia Huy
+    * Nguyen Tai Loc
