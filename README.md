@@ -1,7 +1,7 @@
 # Quickest path in London
 * A student project in FPT University
    * About
-      * By extracting infomations of road networking in London from OSM, this can then run Dijsktra Algorithm to find shortest path.
+      * By extracting infomations of road networking in London from OSM, this can then run Dijsktra Algorithm to find shortest path. Using OpenAPI to implement and Google Map API 
 * Technical
    * Shortest Path:
       * Function sh(src, des, by):
