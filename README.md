@@ -5,17 +5,17 @@ A student Project in FPT University
 
 ### Table of road color
 
-| Road                       | Color | Color                                                               |
-|----------------------------|:----------------:|----------------------------------------------------------------------:|
-| `motorway`                 | `crimson`![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)  | time tracking enabled in [timewarrior](https://timewarrior.net/)      |
-| `trunk`                    | `coral 🟠`             | 2 untracked files in the Git repo                                     |
-| `primary`                  | `gold 🟡`             | 1 unstaged change in the Git repo                                     |
-| `secondary`                | `limegreen 🟢`       | the current python version in [pyenv](https://github.com/pyenv/pyenv) |
-| `tertiary`                 | `⌚ hack linux`  | time tracking enabled in [timewarrior](https://timewarrior.net/)      |
-| `residential`              | `?2`             | 2 untracked files in the Git repo                                     |
-| `living_street`            | `!1`             | 1 unstaged change in the Git repo                                     |
-| `pedestrian`               | `🐍 3.7.3`       | the current python version in [pyenv](https://github.com/pyenv/pyenv) |
-| `unclassified`             | `🐍 3.7.3`       | the current python version in [pyenv](https://github.com/pyenv/pyenv) |
+| Road                       | Color | 
+|----------------------------|:----------------|
+| `motorway`                 | `crimson`![#DC143C](https://via.placeholder.com/15/DC143C/000000?text=+) |
+| `trunk`                    | `coral`![#DC143C](https://via.placeholder.com/15/DC143C/000000?text=+)             | 
+| `primary`                  | `gold 🟡`             | 
+| `secondary`                | `limegreen 🟢`       |
+| `tertiary`                 | `⌚ hack linux`  | 
+| `residential`              | `?2`             | 
+| `living_street`            | `!1`             | 
+| `pedestrian`               | `🐍 3.7.3`       | 
+| `unclassified`             | `🐍 3.7.3`       | 
 
 ![](demo.gif)
 
