@@ -1,9 +1,7 @@
 # Quickest path in London
 A student project in FPT University
 
-## Demo
-
-### Road color
+## Road color
 
 | Road                       | Color | |
 |----------------------------|:----------------:|--------:|
@@ -17,7 +15,7 @@ A student project in FPT University
 | `pedestrian`               | `blueviolet   `|![#8A2BE2](https://via.placeholder.com/15/8A2BE2/000000?text=+)     | 
 | `unclassified`             | `fuchsia      `|![#FF00FF](https://via.placeholder.com/15/FF00FF/000000?text=+)    | 
 
-### Demo video
+## Demo video
 ![](demo.gif)
 
 ## Contributors
