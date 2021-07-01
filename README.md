@@ -1,9 +1,9 @@
 # Quickest path in London
-A student Project in FPT University
+  A student project in FPT University
 
 ## Demo
 
-### Table of road color
+### Road color
 
 | Road                       | Color | |
 |----------------------------|:----------------:|--------:|
@@ -17,6 +17,10 @@ A student Project in FPT University
 | `pedestrian`               | `blueviolet   `|![#8A2BE2](https://via.placeholder.com/15/8A2BE2/000000?text=+)     | 
 | `unclassified`             | `fuchsia      `|![#FF00FF](https://via.placeholder.com/15/FF00FF/000000?text=+)    | 
 
+### Demo video
 ![](demo.gif)
 
 ## Members
+  Cao Ngoc Hieu
+  Nguyen Gia Huy
+  Nguyen Tai Loc
