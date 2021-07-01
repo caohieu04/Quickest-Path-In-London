@@ -21,7 +21,10 @@ Extracting infomations of road networking in London from [openstreetmap](https:/
 
 ![](demo.gif)
 
+## Quad tree
+![](Sources/Shortest_Path/qt1.png)
 
+![](Sources/Shortest_Path/qt2.png)
 ## Technical
 * Stats:
     * Nodes: ~560k
