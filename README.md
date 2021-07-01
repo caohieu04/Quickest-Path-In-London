@@ -23,6 +23,10 @@ Extracting infomations of road networking in London from [openstreetmap](https:/
 
 
 ## Technical
+* Stats:
+    * Nodes: ~560k
+    * Named node: ~40k
+    * `connection.json`: ~350mb
 * Shortest Path:
   * Function sh(src, des, by):
       * `src` : source (node_id)(str)
@@ -47,6 +51,19 @@ Extracting infomations of road networking in London from [openstreetmap](https:/
           * `points`: list of all points
       * `add_point(point)`
       * `get_nearest(point)`
+* Features:
+    * Find by Name: Input 2 name, 
+## Performance:
+* Start-up Time:
+    * Read `connection.json`: ~8s 
+    * KdTree: ~4s
+    * editDistance: ~0.5s
+    * Qtree: ~20s (Use only once to produce `quadtree.png`)
+    * Other: ~1s
+    * Total: ~13.5s (non Qtree) && ~34s(Qtree)
+* API Time:
+    * Find By Name: ~2s(get places from name) + ~1s(quickest path)
+    * Find By Pos: ~1s(get nearest valid pos from marker) + ~1s(quickest path)
 ## Team members: 
   * Cao Ngoc Hieu
   * Nguyen Gia Huy
