@@ -4,19 +4,29 @@
       * By extracting infomations of road networking in London from OSM, this can then run Dijsktra Algorithm to find shortest path.
 * Technical
    * Shortest Path:
-      * Function sh(src, des, by)
+      * Function sh(src, des, by):
           * `src` : source (node_id)(str)
           * `des` : destination (node_id)(str)
           * `by` : `time` or `distance` (str)
-      * Class editDistance
+      * Class QTree:
+          * `__init__(k, data_list)`:
+              * `k`: threshold for number of point in smallest cell
+              * `data_list`: `list(data.items())`
+          * `add_point(point)`
+          * `recursive_subdivide(node, k)`
+          * `contains(x, y, w, h, points)`: Check if reactangle top left corner `(x, y)` size `(w, h)` contains all points
+          * `find_children(node)`
+          * `graph()`: Draw plt grap to `quadtree.png`
+      * Class editDistance:
           * `compute_edit_dist(s1, s2)`: return edit distance of s1 and s2
           * `nearest_name_get(search)`: get nearest name compare to `search`
-      * Class KdTree
-          * `__init__(data)` 
+      * Class KdTree:
+          * `__init__(data)`: 
               * `data`: from `connection.json`
-          * `make_kd_tree(points)` 
+          * `make_kd_tree(points)`: 
               * `points`: list of all points
           * `add_point(point)`
+          * `get_nearest(point)`
 * Team members: 
     * Cao Ngoc Hieu
     * Nguyen Gia Huy
