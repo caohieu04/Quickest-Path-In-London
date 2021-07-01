@@ -60,10 +60,10 @@ Extracting infomations of road networking in London from [openstreetmap](https:/
     * editDistance: ~0.5s
     * Qtree: ~20s (Use only once to produce `quadtree.png`)
     * Other: ~1s
-    * Total: ~13.5s (non Qtree) && ~34s(Qtree)
+    * Total: ~13.5s (non Qtree) && ~34s (Qtree)
 * API Time:
-    * Find By Name: ~2s(get places from name) + ~1s(quickest path)
-    * Find By Pos: ~1s(get nearest valid pos from marker) + ~1s(quickest path)
+    * Find By Name: ~2s (get places from name) + ~1s (quickest path)
+    * Find By Pos: ~1s (get nearest valid pos from marker) + ~1s (quickest path)
 ## Team members: 
   * Cao Ngoc Hieu
   * Nguyen Gia Huy
