@@ -20,19 +20,10 @@
 ### Demo video
 ![](demo.gif)
 
-## Members
-1. 
-   - [Manual](#manual) 👈 **choose this if confused or uncertain**
-   - [Oh My Zsh](#oh-my-zsh)
-   - [Prezto](#prezto)
-   - [Zim](#zim)
-   - [Antibody](#antibody)
-   - [Antigen](#antigen)
-   - [Zplug](#zplug)
-   - [Zgen](#zgen)
-   - [Zplugin](#zplugin)
-   - [Zinit](#zinit)
-   - [Homebrew](#homebrew)
-   - [Arch Linux](#arch-linux)
+## Contributors
+Team members: 
+   - [Cao Ngoc Hieu]
+   - [Nguyen Gia Huy]
+   - [Nguyen Tai Loc]
 1. Restart Zsh.
 1. Type `p10k configure` if the configuration wizard doesn't start automatically.
