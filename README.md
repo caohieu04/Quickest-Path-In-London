@@ -5,8 +5,8 @@ A student Project in FPT University
 
 ### Table of road color
 
-| Road                       | Color | 
-|----------------------------|:----------------|
+| Road                       | Color | |
+|----------------------------|:----------------:|--------:|
 | `motorway`                 | `crimson      `|![#DC143C](https://via.placeholder.com/15/DC143C/000000?text=+) |
 | `trunk`                    | `coral        `|![#FF7F50](https://via.placeholder.com/15/FF7F50/000000?text=+)             | 
 | `primary`                  | `gold         `|![#FFD700](https://via.placeholder.com/15/FFD700/000000?text=+)           | 
