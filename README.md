@@ -5,9 +5,9 @@
 * Technical
    * Shortest Path:
       * Function sh(src, des, by):
-          * src: source (node_id)(str)
-          * des: destination (node_id)(str)
-          * by: `time` or `distance` (str)
+          * `src` : source (node_id)(str)
+          * `des` : destination (node_id)(str)
+          * `by` : `time` or `distance` (str)
 * Team members: 
     * Cao Ngoc Hieu
     * Nguyen Gia Huy
