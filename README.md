@@ -2,7 +2,13 @@
 
 ## About
 Extracting infomations of road networking in London from [openstreetmap](https://www.openstreetmap.org/), this can then run Dijsktra Algorithm to find shortest path. Using OpenAPI to implement server and Google Map API to get nice background map from Google. Slight tweak with heuristic approach: assuming one's velocity is road's max-speed, quickest route is obtained.
-    
+
+## Run command
+```
+cd ./Sources/Shortest_Path
+uvicorn main:app --reload
+```
+
 ## Road color
 
 | Road                       | Color | |
