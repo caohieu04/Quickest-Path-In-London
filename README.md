@@ -1,7 +1,7 @@
 # Quickest path in London
 * A student project in FPT University
    * About
-      * Extracting infomations of road networking in London from [openstreetmap](https://www.openstreetmap.org/), this can then run Dijsktra Algorithm to find shortest path. Using OpenAPI to implement server and Google Map API to get nice background map from Google. Heuristic approach: assuming one's velocity is road's max-speed, quickest route is obtained instead of shortest route
+      * Extracting infomations of road networking in London from [openstreetmap](https://www.openstreetmap.org/), this can then run Dijsktra Algorithm to find shortest path. Using OpenAPI to implement server and Google Map API to get nice background map from Google. Slight tweak with heuristic approach: assuming one's velocity is road's max-speed, quickest route is obtained.
 * Technical
    * Shortest Path:
       * Function sh(src, des, by):
