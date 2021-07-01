@@ -2,10 +2,6 @@
 * A student project in FPT University
    * About
       * Extracting infomations of road networking in London from [openstreetmap](https://www.openstreetmap.org/), this can then run Dijsktra Algorithm to find shortest path. Using OpenAPI to implement server and Google Map API to get nice background map from Google. Slight tweak with heuristic approach: assuming one's velocity is road's max-speed, quickest route is obtained.
-* Team members: 
-    * Cao Ngoc Hieu
-    * Nguyen Gia Huy
-    * Nguyen Tai Loc
     
 ## Road color
 
@@ -51,3 +47,7 @@
           * `points`: list of all points
       * `add_point(point)`
       * `get_nearest(point)`
+## Team members: 
+  * Cao Ngoc Hieu
+  * Nguyen Gia Huy
+  * Nguyen Tai Loc
