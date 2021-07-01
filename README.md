@@ -21,6 +21,18 @@
 ![](demo.gif)
 
 ## Members
-  1. Cao Ngoc Hieu
-  1. Nguyen Gia Huy
-  1. Nguyen Tai Loc
+1. 
+   - [Manual](#manual) 👈 **choose this if confused or uncertain**
+   - [Oh My Zsh](#oh-my-zsh)
+   - [Prezto](#prezto)
+   - [Zim](#zim)
+   - [Antibody](#antibody)
+   - [Antigen](#antigen)
+   - [Zplug](#zplug)
+   - [Zgen](#zgen)
+   - [Zplugin](#zplugin)
+   - [Zinit](#zinit)
+   - [Homebrew](#homebrew)
+   - [Arch Linux](#arch-linux)
+1. Restart Zsh.
+1. Type `p10k configure` if the configuration wizard doesn't start automatically.
