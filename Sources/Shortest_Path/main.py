@@ -3,6 +3,7 @@ import time
 import json
 import heapq
 import os
+from Trie.trie import Trie
 import phase_4
 from typing import Optional
 
@@ -14,8 +15,9 @@ from math import cos, asin, sqrt, pi
 import matplotlib.pyplot as plt
 from matplotlib import patches
 import random
+
 start_up_t1 = time.time()
-with open('../../Data/connection.json', encoding='utf-8') as f:
+with open('./Data/connection.json', encoding='utf-8') as f:
 	data = json.load(f)
 data_list = list(data.items())
 print(f'Read time: {time.time() - start_up_t1}')
@@ -154,72 +156,116 @@ def sh(src="35964104", des="248996302", by="time"):
 
 
 # %%
-def build_edit_distance():
-	
+def build_trie():
+	# Build name list
+	# name2id use for search id of name given name
+	re = []
 	name2id = {}
-	matrix = []
-	for i in range(100):
-		new = []
-		for j in range(100):
-			new.append(0)
-		matrix.append(new)
-	class editDistance:
-		#stringData: data_list
-		def __init__(self, stringData):
-			re = []
-			for _, u in stringData:
-				# print(u[1])
-				# break
-				if "name" in u:
-					re.append(u["name"].lower())
-					name2id[u["name"].lower()] = u['node_id']
-				if "connection" in u:
-					for v in u["connection"]:
-						if "name" in v:
-							re.append(v["name"].lower())
-							name2id[v["name"].lower()] = u['node_id']
-			re = set(re)
-			print(f"Number of named node: {len(re)}")
-			self.stringData = re
+	for _, u in data_list:
+		# print(u[1])
+		# break
+		if "name" in u:
+			re.append(u["name"].lower())
+			name2id[u["name"].lower()] = u['node_id']
+		if "connection" in u:
+			for v in u["connection"]:
+				if "name" in v:
+					re.append(v["name"].lower())
+					name2id[v["name"].lower()] = u['node_id']
+	re = set(re)
+	print(f"Number of named node: {len(re)}")
+	
+	"""
+	1. Create Trie
+	2. Add data to Trie
+	"""
+	trie = Trie()
+	trie.add_all(re)
+
+	return trie, name2id
+
+
+def nearest_name_get(search):
+	result_str = None
+	search = search.lower()
+	if search == '':
+		result_str = trie.search_with_wildcard('*')
+	else:
+		result_str = trie.search_with_wildcard('*' +
+												'*'.join([*search[::1]]) +
+												'*')
+	if len(result_str) == 0:
+		return ''
+	result = (name2id.get(result_str[0]), result_str[0])
+	return result
+
+
+	# name2id = {}
+	# matrix = []
+	# for i in range(100):
+	# 	new = []
+	# 	for j in range(100):
+	# 		new.append(0)
+	# 	matrix.append(new)
+	# class editDistance:
+	# 	#stringData: data_list
+	# 	def __init__(self, stringData):
+	# 		re = []
+	# 		name2id = {}
+	# 		for _, u in data_list:
+	# 			# print(u[1])
+	# 			# break
+	# 			if "name" in u:
+	# 				re.append(u["name"].lower())
+	# 				name2id[u["name"].lower()] = u['node_id']
+	# 			if "connection" in u:
+	# 				for v in u["connection"]:
+	# 					if "name" in v:
+	# 						re.append(v["name"].lower())
+	# 						name2id[v["name"].lower()] = u['node_id']
+	# 		re = set(re)
+	# 		print(f"Number of named node: {len(re)}")
+					
+	# 		self.stringData = re
 			
-		def compute_edit_dist(self, string1, string2):
-			# + 1 for 1 more row to contain order of character in string
-			m = len(string1) + 1
-			n = len(string2) + 1
-			for i in range(m):
-				for j in range(n):
-					matrix[i][j] = 0
+	# 	def compute_edit_dist(self, string1, string2):
+	# 		# + 1 for 1 more row to contain order of character in string
+	# 		m = len(string1) + 1
+	# 		n = len(string2) + 1
+	# 		for i in range(m):
+	# 			for j in range(n):
+	# 				matrix[i][j] = 0
 
-			for i in range(m):
-				matrix[i][0] = i
-			for j in range(n):
-				matrix[0][j] = j
+	# 		for i in range(m):
+	# 			matrix[i][0] = i
+	# 		for j in range(n):
+	# 			matrix[0][j] = j
 
-			for i in range(1, m):
-				for j in range(1, n):
-					if string1[i-1] == string2[j-1]:
-						matrix[i][j] = matrix[i-1][j-1]
-					else:
-						# Replace][ insertion][ deletion
-						matrix[i][j] = 1 + min(matrix[i-1][j-1], matrix[i-1][ j], matrix[i][ j-1])
-			dist = matrix[m-1][n-1]
-			return dist
+	# 		for i in range(1, m):
+	# 			for j in range(1, n):
+	# 				if string1[i-1] == string2[j-1]:
+	# 					matrix[i][j] = matrix[i-1][j-1]
+	# 				else:
+	# 					# Replace][ insertion][ deletion
+	# 					matrix[i][j] = 1 + min(matrix[i-1][j-1], matrix[i-1][ j], matrix[i][ j-1])
+	# 		dist = matrix[m-1][n-1]
+	# 		return dist
 		
-		def nearest_name_get(self, search, top_n=1):
-			dist_scores = []
-			mi = 1e15
-			for v in self.stringData:
-				dist = self.compute_edit_dist(search, v)
-				if int(dist) < mi:
-					mi = dist
-					re = (name2id[v], v)
-				# dist_scores.append((k, v, int(dist)))
-			# print(dist_scores)
-			# dist_scores = sorted(dist_scores, key=lambda x: x[2],reverse=False)
-			return re
-	return editDistance(data_list)
+	# 	def nearest_name_get(self, search, top_n=1):
+	# 		dist_scores = []
+	# 		mi = 1e15
+	# 		for v in self.stringData:
+	# 			dist = self.compute_edit_dist(search, v)
+	# 			if int(dist) < mi:
+	# 				mi = dist
+	# 				re = (name2id[v], v)
+	# 			# dist_scores.append((k, v, int(dist)))
+	# 		# print(dist_scores)
+	# 		# dist_scores = sorted(dist_scores, key=lambda x: x[2],reverse=False)
+	# 		return re
+	# return editDistance(data_list)
 
-ED = build_edit_distance()
+trie, name2id = build_trie()
 
 # %%
 # t = time.time()
@@ -228,13 +274,13 @@ ED = build_edit_distance()
 @app.get("/byName/")
 def findByName(name1, name2):
 	t1 = time.time()
-	a = ED.nearest_name_get(name1)
-	b = ED.nearest_name_get(name2)
+	a = nearest_name_get(name1)
+	b = nearest_name_get(name2)
 	re = sh(str(a[0]), str(b[0]))
 	t2 = time.time() - t1
 	return re, t2
 # findByName(name1, name2)
-# print(ED.nearest_name_get("summy side"))
+# print(nearest_name_get("summy side"))
 # print(time.time() - t)
 # print(data_list[1])
 # %%

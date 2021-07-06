@@ -14,7 +14,7 @@ from math import cos, asin, sqrt, pi
 import matplotlib.pyplot as plt
 from matplotlib import patches
 import random
-with open('../../Data/connection.json', encoding='utf-8') as f:
+with open('./Data/connection.json', encoding='utf-8') as f:
 	data = json.load(f)
 data_list = list(data.items())
 d = {}
@@ -63,5 +63,5 @@ new_data = {}
 for k, v in data_list:
   if k in d:
     new_data[k] = v
-with open('new_highways.json', 'w', encoding='utf-8') as f:
+with open('./Data/new_highways.json', 'w', encoding='utf-8') as f:
   json.dump(new_data, f, ensure_ascii=False, indent=2)
