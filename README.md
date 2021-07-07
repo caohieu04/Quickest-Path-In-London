@@ -25,7 +25,7 @@ uvicorn main:app --reload
 
 ## Demo video
 
-![](demo.gif)
+![](demo_.gif)
 
 ## Technical
 * Stats:
