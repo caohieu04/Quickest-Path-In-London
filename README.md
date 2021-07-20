@@ -80,5 +80,5 @@ uvicorn main:app --reload
 
 ![](Sources/Shortest_Path/qt4.png)
 
-## Print all map
+## All map
 ![](Sources/Shortest_Path/map.png)
