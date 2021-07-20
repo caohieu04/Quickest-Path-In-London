@@ -27,6 +27,29 @@ uvicorn main:app --reload
 
 ![](demo_.gif)
 
+* Features:
+    * Find by Name: Input 2 name, use Trie to search for node with nearest name, calculate the shortest path
+    * Find by Location: Click by mouse on interactive map, use KD-Tree to search for node with nearest name, calculate the shortest path
+## Performance:
+* Start-up Time:
+    * Read `connection.json`: ~8s 
+    * KdTree: ~4s
+    * editDistance: ~0.5s
+    * Qtree: ~20s (Use only once to produce `quadtree.png`)
+    * Other: ~1s
+    * Total: ~13.5s (non Qtree) && ~34s (Qtree)
+* API Time:
+    * Find By Name: ~2s (get places from name) + ~1s (quickest path)
+    * Find By Pos: ~1s (get nearest valid pos from marker) + ~1s (quickest path)
+
+## Quad tree
+![](Sources/Shortest_Path/qt3.png)
+
+![](Sources/Shortest_Path/qt4.png)
+
+## All map
+![](Sources/Shortest_Path/map.png)
+
 ## Technical
 * Stats:
     * Nodes: ~560k
@@ -46,8 +69,7 @@ uvicorn main:app --reload
       * `contains(x, y, w, h, points)`: Check if reactangle top left corner `(x, y)` size `(w, h)` contains all points
       * `find_children(node)`
       * `graph()`: Draw plt grap to `quadtree.png`
-  * Class editDistance:
-      * `compute_edit_dist(s1, s2)`: return edit distance of s1 and s2
+  * Class Trie:
       * `nearest_name_get(search)`: get nearest name compare to `search`
   * Class KdTree:
       * `__init__(data)`: 
@@ -56,29 +78,8 @@ uvicorn main:app --reload
           * `points`: list of all points
       * `add_point(point)`
       * `get_nearest(point)`
-* Features:
-    * Find by Name: Input 2 name, use Trie to search for node with nearest name, calculate the shortest path
-    * Find by Location: Click by mouse on interactive map, use KD-Tree to search for node with nearest name, calculate the shortest path
-## Performance:
-* Start-up Time:
-    * Read `connection.json`: ~8s 
-    * KdTree: ~4s
-    * editDistance: ~0.5s
-    * Qtree: ~20s (Use only once to produce `quadtree.png`)
-    * Other: ~1s
-    * Total: ~13.5s (non Qtree) && ~34s (Qtree)
-* API Time:
-    * Find By Name: ~2s (get places from name) + ~1s (quickest path)
-    * Find By Pos: ~1s (get nearest valid pos from marker) + ~1s (quickest path)
-## Team members: 
+ 
+ ## Team members: 
   * Cao Ngoc Hieu
   * Nguyen Gia Huy
   * Nguyen Tai Loc
-
-## Quad tree
-![](Sources/Shortest_Path/qt3.png)
-
-![](Sources/Shortest_Path/qt4.png)
-
-## All map
-![](Sources/Shortest_Path/map.png)
