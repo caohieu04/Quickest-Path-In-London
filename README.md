@@ -3,13 +3,13 @@
 ## About
 Extracting infomations of road networking in London from [openstreetmap](https://www.openstreetmap.org/), this can then run Dijsktra Algorithm to find shortest path. Using OpenAPI to implement server and Google Map API to get nice background map from Google. Slight tweak with heuristic approach: assuming one's velocity is road's max-speed, quickest route is obtained.
 
-## Run command
+## Run Command
 ```
 cd ./Sources/Shortest_Path
 uvicorn main:app --reload
 ```
 
-## Road color
+## Road Color
 
 | Road                       | Color | |
 |----------------------------|:----------------:|--------:|
@@ -23,9 +23,14 @@ uvicorn main:app --reload
 | `pedestrian`               | `blueviolet   `|![#8A2BE2](https://via.placeholder.com/15/8A2BE2/000000?text=+)     | 
 | `unclassified`             | `fuchsia      `|![#FF00FF](https://via.placeholder.com/15/FF00FF/000000?text=+)    | 
 
-## Demo video
+## Demo Video
 
 ![](demo_.gif)
+
+## Map Overview
+
+![](Sources/Shortest_Path/map.png)
+
 
 * Features:
     * Find by Name: Input 2 name, use Trie to search for node with nearest name, calculate the shortest path
@@ -34,21 +39,20 @@ uvicorn main:app --reload
 * Start-up Time:
     * Read `connection.json`: ~8s 
     * KdTree: ~4s
-    * editDistance: ~0.5s
-    * Qtree: ~20s (Use only once to produce `quadtree.png`)
+    * Trie: ~1s
+    * Qtree: ~60s (Use only once to produce `quadtree.png`)
     * Other: ~1s
-    * Total: ~13.5s (non Qtree) && ~34s (Qtree)
+    * Total: ~14s (non Qtree) && ~75s (Qtree)
 * API Time:
-    * Find By Name: ~2s (get places from name) + ~1s (quickest path)
-    * Find By Pos: ~1s (get nearest valid pos from marker) + ~1s (quickest path)
+    * Find By Name: ~1s (get places from name) + ~1s (quickest path)
+    * Find By Location: ~1s (get nearest valid location from marker) + ~1s (quickest path)
 
-## Quad tree
+## Quad Tree
 ![](Sources/Shortest_Path/qt3.png)
 
 ![](Sources/Shortest_Path/qt4.png)
 
-## All map
-![](Sources/Shortest_Path/map.png)
+
 
 ## Technical
 * Stats:
