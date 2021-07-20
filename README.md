@@ -57,7 +57,8 @@ uvicorn main:app --reload
       * `add_point(point)`
       * `get_nearest(point)`
 * Features:
-    * Find by Name: Input 2 name, 
+    * Find by Name: Input 2 name, use Trie to search for node with nearest name, calculate the shortest path
+    * Find by Location: Click by mouse on interactive map, use KD-Tree to search for node with nearest name, calculate the shortest path
 ## Performance:
 * Start-up Time:
     * Read `connection.json`: ~8s 
