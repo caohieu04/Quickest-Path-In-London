@@ -14,8 +14,6 @@ if __name__ == '__main__':
     print("Data Loaded!")
 
 # %%
-
-
 def draw_line(paths, gmap, path_color):
     if isinstance(paths, list):
         ploted = False
@@ -29,8 +27,6 @@ def draw_line(paths, gmap, path_color):
         result = gmap.get()[:-1743] + data
         with open("map.html", "w") as f:
             f.write(result)
-        # if ploted:
-        #     print("Drawed")
 
 BIAS_LAT = -7e-06
 BIAS_LON = +4.5e-05
@@ -50,6 +46,24 @@ def draw_path(paths, data, lat, lon, zoom, name1, name2, src, des, path_color):
     gmap.marker(src[0], src[1], color='white', title=name1)
     gmap.marker(des[0], des[1], color='black', title=name2)
     draw_line(paths, gmap, path_color)
+
+def draw_li_path(li_paths, data, lat, lon, zoom, li_path_color):
+    # te_li_paths = []
+    # for paths in li_paths:
+    #     te_li_paths.append(list(paths))
+    # li_paths = te_li_paths
+    li_paths = map(list, li_paths)
+    apikey = 'AIzaSyDC4G5MMotPIKYgl6ow2AkNpfAkWwGKwCM'
+    gmap = gmplot.GoogleMapPlotter(lat, lon, zoom, apikey=apikey)
+    gmap.enable_marker_dropping('orange', draggable=True)
+    for paths, path_color in zip(li_paths, li_path_color):
+        for path, color in zip(paths, path_color):
+            gmap.plot(*path, edge_width=2, color=color)
+    with open ("map-te.html", "r") as myfile:
+        data = myfile.read()
+    result = gmap.get()[:-1743] + data
+    with open("map.html", "w") as f:
+        f.write(result)
 
 
 if __name__ == '__main__':
